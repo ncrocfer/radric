@@ -1,0 +1,7 @@
+.idea/*
+.tox/*
+/build/*
+/radric.egg-info/*
+/dist/*
+*.pyc
+.coverage

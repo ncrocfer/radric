@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% block head %}
+    <meta charset=utf-8 />
+    <link href="{{ SITE_URL }}/css/{{ CSS_FILE }}" rel="stylesheet">
+    <title>{% block title %}{{ SITE_TITLE }}{{ title }}{% endblock %}</title>
+    {% endblock %}
+</head>
+<body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="{{ SITE_URL }}">{{ SITE_TITLE }}</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    {% for page in pages %}
+                        {% if page.menu %}
+                            <li><a href="{{ page.url }}">{{ page.title }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                {% block content %}{% endblock %}
+            </div>
+            <div class="col-md-4">
+                {% include "sidebar.html" with context %}
+            </div>
+        </div>
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright © {{ NOW.strftime('%Y') }} - {{ SITE_TITLE }}</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

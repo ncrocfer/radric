@@ -1,0 +1,16 @@
+# Global
+site_title: Example website
+theme: default
+
+# Urls
+post_url: '{year}/{month}/{day}/{slug}'
+page_url: '{slug}'
+category_url: 'categories/{category}'
+tag_url: 'tags/{tag}'
+
+# Authors
+authors:
+    john:
+        name: John Doe
+        email: john@doe.com
+        web: http://doe.com

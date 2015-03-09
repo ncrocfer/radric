@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}{{ post.title }} - {{ super() }}{% endblock %}
+
+{% block content %}
+<h1>{{ post.title }}</h1>
+
+{% if post.author %}
+<p class="lead">
+    by <a href="{{ post.author.url }}">{{ post.author.name }}</a>
+</p>
+{% endif %}
+
+<hr>
+<p>
+    <span class="glyphicon glyphicon-time"></span>
+    Posted on {{ post.date.strftime("%B %d, %Y at %I:%M %p") }}
+</p>
+<hr>
+{{ post.content }}
+{% endblock %}

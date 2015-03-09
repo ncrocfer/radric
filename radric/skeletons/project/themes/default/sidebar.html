@@ -1,0 +1,31 @@
+{% if (ABOUT_TITLE or ABOUT_CONTENT): %}
+<div class="well">
+    <h4>{{ ABOUT_TITLE }}</h4>
+    {{ ABOUT_CONTENT }}
+</div>
+{% endif %}
+
+<div class="well">
+    <h4>Categories ({{ categories|length }})</h4>
+    <div class="row">
+        <div class="col-lg-12">
+            <ul class="list-unstyled">
+                {% for category in categories|sort(attribute="name") %}
+                <li><a href="{{ category.url }}">{{ category.name }} ({{ category.posts|length }})</a></li>
+                {% endfor %}
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="well">
+    <h4>Tags ({{ tags|length }})</h4>
+    <div class="row">
+        <div class="col-lg-12">
+            {% for tag in tags|sort(attribute="name") %}
+                <span><a href="{{ tag.url }}">{{ tag.name }}</a></span>
+            {% endfor %}
+        </div>
+    </div>
+</div>

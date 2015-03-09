@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    {% for post in posts|sort(attribute='date', reverse=True) %}
+        <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
+        <p class="lead">
+            {% if post.author %}by <i><a href="{{ post.author.url }}">{{ post.author.name }}</a></i> - {% endif %}
+            {{ post.date.strftime('%Y-%m-%d') }}
+        </p>
+        <hr />
+    {% endfor %}
+
+{% endblock %}
