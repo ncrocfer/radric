@@ -32,13 +32,17 @@ Features
 Notes
 -----
 
-Radric is in **Beta** version, a refactoring could appear in the future. The following features will also be added :
+Radric is in **Beta** version, a refactoring could appear in the future. If you want to use a static generator in production, use the awesome `Pelican <http://blog.getpelican.com/>`_ project.
+
+The following features will be added in the next releases:
 
 - RSS & Atom feeds
 - An archives page
 - The ReStructuredText support
 - The pagination
+- The code syntax highlighting
 - A search form in JS
 - A plugin system
+- An import system (Wordpress, Joomla...)
 - Many themes
 - ... and more !
