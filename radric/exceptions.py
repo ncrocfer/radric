@@ -29,6 +29,10 @@ class InvalidContentSyntax(RadricException):
     pass
 
 
+class FormatException(RadricException):
+    pass
+
+
 class PostExists(RadricException):
     pass
 

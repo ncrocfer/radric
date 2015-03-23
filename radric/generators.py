@@ -7,6 +7,7 @@ import logging
 from markdown import markdown
 from slugify import slugify
 from jinja2 import Environment, FileSystemLoader
+from docutils.core import publish_parts
 
 try:
     from urllib.parse import urljoin
@@ -15,7 +16,7 @@ except ImportError:
 
 from radric.post import Post
 from radric.page import Page
-from radric.exceptions import InvalidContentSyntax
+from radric.exceptions import InvalidContentSyntax, FormatException
 
 
 logger = logging.getLogger()
@@ -45,8 +46,16 @@ class BaseGenerator(object):
 
         return metas, src.group(2)
 
-    def generate_html(self, plaintext):
-        return markdown(plaintext)
+    def generate_html(self, file):
+        name, ext = os.path.splitext(file.path)
+
+        if 'rst' in ext:
+            parts = publish_parts(file.plaintext, writer_name='html')
+            return parts['fragment']
+        elif 'md' in ext:
+            return markdown(file.plaintext)
+        else:
+            raise FormatException()
 
 
 class PostsGenerator(BaseGenerator):
@@ -194,7 +203,7 @@ class PostsGenerator(BaseGenerator):
 
     def generate_post(self, writer, context, post):
         template = self.env.get_template(self.settings['POST_FILE'])
-        html = self.generate_html(post.plaintext)
+        html = self.generate_html(post)
         post.content = html
 
         context['post'] = post
@@ -260,7 +269,7 @@ class PagesGenerator(BaseGenerator):
 
     def generate_page(self, writer, context, page):
         template = self.env.get_template(self.settings['PAGE_FILE'])
-        html = self.generate_html(page.plaintext)
+        html = self.generate_html(page)
         page.content = html
         context['page'] = page
 

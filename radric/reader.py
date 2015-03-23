@@ -7,7 +7,7 @@ class Reader(object):
 
     def __init__(self, settings):
         self.settings = settings
-        self.extensions = ['md', 'markdown']
+        self.extensions = ['md', 'rst']
         self.files = dict()
 
     def get_files(self):
