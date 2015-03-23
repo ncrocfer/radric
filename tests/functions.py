@@ -57,11 +57,15 @@ def create_project_structure(dst, structure):
                 raise
 
             if file:
-                content = open(content_path(file)).read()
+                f = open(content_path(file), 'r')
+                content = f.read()
+                f.close()
                 with open(os.path.join(dst, path), "w") as f:
                     f.write(content)
         elif "." in path:
-            content = open(content_path(path)).read()
+            f = open(content_path(path), 'r')
+            content = f.read()
+            f.close()
             with open(os.path.join(dst, path), "w") as f:
                 f.write(content)
         else:
