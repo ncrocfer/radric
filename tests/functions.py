@@ -16,27 +16,27 @@ CURRENT_DIR = os.path.dirname(__file__)
 CONTENT_PATH = os.path.join(CURRENT_DIR, 'content')
 
 POSTS_LIST = {
-    'a-new-post-1.md': 'A new post 1',
-    'a-new-post-2.md': 'A new post 2',
-    'a-new-post-3.md': 'A new post 3',
-    'a-new-post-4.md': 'A new post 4',
-    'a-new-post-5.md': 'A new post 5'
+    'a-new-post-1.rst': 'A new post 1',
+    'a-new-post-2.rst': 'A new post 2',
+    'a-new-post-3.rst': 'A new post 3',
+    'a-new-post-4.rst': 'A new post 4',
+    'a-new-post-5.rst': 'A new post 5'
 }
 
 PAGES_LIST = {
-    'a-new-page-1.md': 'A new page 1',
-    'a-new-page-2.md': 'A new page 2',
-    'a-new-page-3.md': 'A new page 3',
-    'a-new-page-4.md': 'A new page 4',
-    'a-new-page-5.md': 'A new page 5'
+    'a-new-page-1.rst': 'A new page 1',
+    'a-new-page-2.rst': 'A new page 2',
+    'a-new-page-3.rst': 'A new page 3',
+    'a-new-page-4.rst': 'A new page 4',
+    'a-new-page-5.rst': 'A new page 5'
 }
 
 STRUCTURE = {
     'empty_project': ['pages', 'posts', 'public', 'settings.yml'],
-    'one_page': ['posts', 'public', 'pages/about.md', 'settings.yml'],
-    'one_post': ['pages', 'public', 'posts/post_no_drafted.md',
+    'one_page': ['posts', 'public', 'pages/about.rst', 'settings.yml'],
+    'one_post': ['pages', 'public', 'posts/post_no_drafted.rst',
                  'settings.yml'],
-    'one_post_drafted': ['pages', 'public', 'posts/post_drafted.md',
+    'one_post_drafted': ['pages', 'public', 'posts/post_drafted.rst',
                          'settings.yml'],
 }
 
@@ -90,7 +90,7 @@ def tmp_folder(project=False):
         old_post = os.path.join(
             tmp_dir,
             'posts',
-            "welcome-to-radric.md"
+            "welcome-to-radric.rst"
         )
 
         now = datetime.now()
@@ -108,7 +108,7 @@ def tmp_folder(project=False):
         new_post = os.path.join(
             tmp_dir,
             'posts',
-            "{}-welcome-to-radric.md".format(
+            "{}-welcome-to-radric.rst".format(
                 now.strftime('%Y-%m-%d')
             )
         )

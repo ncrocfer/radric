@@ -11,6 +11,7 @@ DEFAULT_SETTINGS = {
     'SITE_URL': 'http://localhost:8000',
     'SITE_TITLE': 'Welcome in Radric',
     'SOURCE_PATH': '.',
+    'DEFAULT_FORMAT': 'rst',
     'PUBLIC_FOLDER': 'public',
     'THEME': 'default',
     'ASSETS_FOLDER': 'assets',

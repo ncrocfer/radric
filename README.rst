@@ -1,7 +1,7 @@
 Radric - Static website generator
 =================================
 
-Radric is a **static website generator** written in Python. Just write your pages and your posts in Markdown format, and Radric generates the HTML pages :
+Radric is a **static website generator** written in Python. Just write your pages and your posts in ReST or Markdown format, and Radric generates the HTML pages :
 
 .. code-block::
 
@@ -9,8 +9,8 @@ Radric is a **static website generator** written in Python. Just write your page
     [*] New project created : /your/path/mywebsite
     $ cd mywebsite
     $ radric new-post "My first post"
-    [*] New post created : /your/path/mywebsite/posts/my-first-post.md
-    $ vim posts/my-first-post.md
+    [*] New post created : /your/path/mywebsite/posts/my-first-post.rst
+    $ vim posts/my-first-post.rst
     ...
     $ radric generate
 
@@ -21,6 +21,7 @@ Features
 --------
 
 - Posts and pages support
+- ReST and Markdown formats
 - Custom menu based on pages
 - Categories, Tags and Authors management
 - Drafts system
@@ -38,7 +39,6 @@ The following features will be added in the next releases:
 
 - RSS & Atom feeds
 - An archives page
-- The ReStructuredText support
 - The pagination
 - The code syntax highlighting
 - A search form in JS

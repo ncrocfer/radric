@@ -21,7 +21,7 @@ def copy_project(src, dst, blank):
     try:
         ignored = None
         if blank:
-            ignored = shutil.ignore_patterns('*.md')
+            ignored = shutil.ignore_patterns('*.rst')
 
         shutil.copytree(src, dst, ignore=ignored)
 
@@ -29,7 +29,7 @@ def copy_project(src, dst, blank):
             old_post = os.path.join(
                 dst,
                 'posts',
-                "welcome-to-radric.md"
+                "welcome-to-radric.rst"
             )
 
             with open(old_post, 'r+') as f:
@@ -46,7 +46,7 @@ def copy_project(src, dst, blank):
             new_post = os.path.join(
                 dst,
                 'posts',
-                "{}-welcome-to-radric.md".format(
+                "{}-welcome-to-radric.rst".format(
                     now.strftime('%Y-%m-%d')
                 )
             )
@@ -63,7 +63,10 @@ def get_template_path(template):
         'skeletons'
     )
 
-    if template not in ['project', 'post.md', 'page.md']:
+    tpl_allowed = ['project', 'post.md', 'page.md',
+                   'post.rst', 'page.rst']
+
+    if template not in tpl_allowed:
         raise TemplateNotFound("{} template not found".format(template))
 
     return os.path.join(

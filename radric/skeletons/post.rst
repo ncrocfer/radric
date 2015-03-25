@@ -7,4 +7,4 @@ author: radric
 draft: True
 ---
 
-Write your markdown content here.
+Write your ReST content here.

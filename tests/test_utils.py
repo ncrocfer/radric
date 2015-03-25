@@ -74,12 +74,12 @@ class TemplatePathTestCase(unittest.TestCase):
         ]), 1)
 
     def test_post_path(self):
-        post = get_template_path("post.md")
-        self.assertTrue(post.endswith('skeletons/post.md'))
+        post = get_template_path("post.rst")
+        self.assertTrue(post.endswith('skeletons/post.rst'))
 
     def test_page_path(self):
-        page = get_template_path("page.md")
-        self.assertTrue(page.endswith('skeletons/page.md'))
+        page = get_template_path("page.rst")
+        self.assertTrue(page.endswith('skeletons/page.rst'))
 
     def test_return_template_not_found_exception(self):
         with self.assertRaises(TemplateNotFound):

@@ -171,7 +171,7 @@ class RadricCommandsTestCase(unittest.TestCase):
     @log_capture()
     def test_generate_with_no_drafted_posts(self, l):
         with tmp_folder(project=True) as tmp_dir:
-            with open(content_path('post_no_drafted.md'), 'r') as f:
+            with open(content_path('post_no_drafted.rst'), 'r') as f:
                 content = f.read()
             for post in POSTS_LIST.keys():
                 post_path = os.path.join(tmp_dir, 'posts', post)
@@ -193,7 +193,7 @@ class RadricCommandsTestCase(unittest.TestCase):
     @log_capture()
     def test_generate_with_no_drafted_pages(self, l):
         with tmp_folder(project=True) as tmp_dir:
-            with open(content_path('page_no_drafted.md'), 'r') as f:
+            with open(content_path('page_no_drafted.rst'), 'r') as f:
                 content = f.read()
             for page in PAGES_LIST.keys():
                 page_path = os.path.join(tmp_dir, 'pages', page)

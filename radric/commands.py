@@ -34,6 +34,7 @@ class Commands(object):
     def new_project(self):
         template_path = get_template_path('project')
         project_path = os.path.realpath(self.args['<name>'])
+
         copy_project(
             template_path,
             project_path,
@@ -44,7 +45,8 @@ class Commands(object):
 
     def new_post(self):
         settings = self._get_settings()
-        template_path = get_template_path('post.md')
+        template_file = 'post.{}'.format(settings['DEFAULT_FORMAT'])
+        template_path = get_template_path(template_file)
 
         with open(template_path, "r") as f:
             content = f.read()
@@ -61,7 +63,7 @@ class Commands(object):
         post_path = os.path.join(
             settings['SOURCE_PATH'],
             'posts',
-            '{}-{}.md'.format(now.strftime('%Y-%m-%d'), slug)
+            '{}-{}.{}'.format(now.strftime('%Y-%m-%d'), slug, settings['DEFAULT_FORMAT'])
         )
 
         if (os.path.isfile(post_path) and
@@ -77,7 +79,8 @@ class Commands(object):
 
     def new_page(self):
         settings = self._get_settings()
-        template_path = get_template_path('page.md')
+        template_file = 'page.{}'.format(settings['DEFAULT_FORMAT'])
+        template_path = get_template_path(template_file)
 
         with open(template_path, "r") as f:
             content = f.read()
@@ -88,7 +91,7 @@ class Commands(object):
         page_path = os.path.join(
             settings['SOURCE_PATH'],
             'pages',
-            '{}.md'.format(slug)
+            '{}.{}'.format(slug, settings['DEFAULT_FORMAT'])
         )
 
         if (os.path.isfile(page_path) and
