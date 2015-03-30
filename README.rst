@@ -13,8 +13,20 @@ Radric is a **static website generator** written in Python. Just write your page
     $ vim posts/my-first-post.rst
     ...
     $ radric generate
+    [*] Processed 1 post and 1 page
+    [*] 0 draft remaining
+    0.06 seconds
+    $ radric serve
+    Serving HTTP on 0.0.0.0 port 8000 ...
+    Use Control-C to exit
 
-The HTML pages will be accessible in the ``public`` folder.
+The HTML pages will be accessible in the ``public`` folder :
+
+.. image:: https://raw.githubusercontent.com/ncrocfer/radric/master/radric.png
+    :alt: Radric
+    :width: 700
+    :height: 382
+    :align: center
 
 
 Features
