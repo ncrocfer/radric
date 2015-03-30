@@ -15,12 +15,16 @@ Radric is a **static website generator** written in Python. Just write your page
     $ radric generate
     [*] Processed 1 post and 1 page
     [*] 0 draft remaining
-    0.06 seconds
+    0.20 seconds
+
+The HTML pages will be accessible in the ``public`` folder. You can view your website by launching the development server :
+
+.. code-block::
+
     $ radric serve
     Serving HTTP on 0.0.0.0 port 8000 ...
     Use Control-C to exit
 
-The HTML pages will be accessible in the ``public`` folder :
 
 .. image:: https://raw.githubusercontent.com/ncrocfer/radric/master/radric.png
     :alt: Radric
@@ -38,6 +42,7 @@ Features
 - Categories, Tags and Authors management
 - Drafts system
 - Custom URLs structure
+- A development server
 - Themes support
 - Markdown edition
 - Python 2 & Python 3
