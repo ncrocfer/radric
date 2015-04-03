@@ -16,8 +16,7 @@ You can now delete this post and start creating others :
     $ vim posts/my-first-post.rst
     ...
     $ radric generate
-    $ cd public
-    $ python -m "SimpleHTTPServer" # or http.server for Python 3
+    $ radric serve
     Serving HTTP on 0.0.0.0 port 8000 ...
 
 Radric accepts the `ReST`_ and the `Markdown`_ formats.
