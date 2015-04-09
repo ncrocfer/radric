@@ -9,6 +9,7 @@ post_url: '{year}/{month}/{day}/{slug}'
 page_url: '{slug}'
 category_url: 'categories/{category}'
 tag_url: 'tags/{tag}'
+author_url: 'authors/{author}'
 
 # Authors
 authors:
