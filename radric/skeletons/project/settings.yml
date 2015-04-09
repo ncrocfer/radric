@@ -2,6 +2,7 @@
 site_url: http://localhost:8000
 site_title: My awesome website
 theme: default
+auto_expand: True
 
 # Urls
 post_url: '{year}/{month}/{day}/{slug}'

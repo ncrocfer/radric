@@ -32,6 +32,7 @@ DEFAULT_SETTINGS = {
     'ABOUT_TITLE': 'About Radric',
     'ABOUT_CONTENT': 'Radric is a static website '
                      'generator fully written in Python.',
+    'AUTO_EXPAND': True,
 }
 
 

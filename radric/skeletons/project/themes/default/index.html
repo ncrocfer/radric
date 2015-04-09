@@ -8,6 +8,9 @@
             {% if post.author %}by <i><a href="{{ post.author.url }}">{{ post.author.name }}</a></i> - {% endif %}
             {{ post.date.strftime('%Y-%m-%d') }}
         </p>
+        {% if AUTO_EXPAND %}
+        {{ post.content }}
+        {% endif %}
         <hr />
     {% endfor %}
 
