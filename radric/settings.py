@@ -29,9 +29,6 @@ DEFAULT_SETTINGS = {
     'TAG_URL': 'tags/{tag}.html',
     'AUTHOR_URL': 'authors/{author}.html',
     'NOW': datetime.now(),
-    'ABOUT_TITLE': 'About Radric',
-    'ABOUT_CONTENT': 'Radric is a static website '
-                     'generator fully written in Python.',
     'AUTO_EXPAND': True,
 }
 
