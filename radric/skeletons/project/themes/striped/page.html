@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page.title }} - {{ super() }}{% endblock %}
+
+{% block content %}
+<article class="box post post-excerpt">
+    <header>
+        <h2>{{ page.title }}</h2>
+    </header>
+    {{ page.content }}
+</article>
+{% endblock %}

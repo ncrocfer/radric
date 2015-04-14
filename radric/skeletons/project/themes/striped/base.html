@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>{% block title %}{{ SITE_TITLE }}{{ title }}{% endblock %}</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <!--[if lte IE 8]><script src="{{ SITE_URL }}/css/ie/html5shiv.js"></script><![endif]-->
+    <script src="{{ SITE_URL }}/js/jquery.min.js"></script>
+    <script src="{{ SITE_URL }}/js/skel.min.js"></script>
+    <script src="{{ SITE_URL }}/js/skel-layers.min.js"></script>
+    <script src="{{ SITE_URL }}/js/init.js"></script>
+    <noscript>
+        <link rel="stylesheet" href="{{ SITE_URL }}/css/skel.css" />
+        <link rel="stylesheet" href="{{ SITE_URL }}/css/style.css" />
+        <link rel="stylesheet" href="{{ SITE_URL }}/css/style-desktop.css" />
+        <link rel="stylesheet" href="{{ SITE_URL }}/css/style-wide.css" />
+    </noscript>
+    <!--[if lte IE 8]><link rel="stylesheet" href="{{ SITE_URL }}/css/ie/v8.css" /><![endif]-->
+</head>
+<body class="left-sidebar">
+
+<div id="wrapper">
+
+<div id="content">
+    <div class="inner">
+        {% block content %}{% endblock %}
+    </div>
+</div>
+
+{% include "sidebar.html" with context %}
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}{{ category.name }} - {{ super() }}{% endblock %}
+
+{% block content %}
+
+{% for post in category.posts|sort(attribute='date', reverse=True) %}
+<article class="box post post-excerpt">
+    <header>
+        <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+    </header>
+    <div class="info">
+        <span class="date"><span class="month">Jul<span>y</span></span> <span class="day">{{ post.date.strftime('%d') }}</span><span class="year">, {{ post.date.strftime('%Y') }}</span></span>
+    </div>
+</article>
+{% endfor %}
+
+{% endblock %}
