@@ -16,10 +16,10 @@
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    {% for page in pages %}
-                        {% if page.menu %}
-                            <li><a href="{{ page.url }}">{{ page.title }}</a></li>
-                        {% endif %}
+                    {% for p in pages %}
+                         {% if p.menu %}
+                             <li{% if page == p %} class="active"{% endif %}><a href="{{ p.url }}">{{ p.title }}</a></li>
+                         {% endif %}
                     {% endfor %}
                 </ul>
             </div>

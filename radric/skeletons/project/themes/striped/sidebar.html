@@ -6,9 +6,9 @@
     <!-- Nav -->
     <nav id="nav">
         <ul>
-        {% for page in pages %}
-            {% if page.menu %}
-            <li><a href="{{ page.url }}">{{ page.title }}</a></li>
+        {% for p in pages %}
+             {% if p.menu %}
+                <li{% if page == p %} class="current"{% endif %}><a href="{{ p.url }}">{{ p.title }}</a></li>
             {% endif %}
         {% endfor %}
         </ul>
