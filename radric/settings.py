@@ -13,7 +13,7 @@ DEFAULT_SETTINGS = {
     'SOURCE_PATH': '.',
     'DEFAULT_FORMAT': 'rst',
     'PUBLIC_FOLDER': 'public',
-    'THEME': 'default',
+    'THEME': 'striped',
     'ASSETS_FOLDER': 'assets',
     'CSS_FILE': 'style.css',
     'CONTENT_DIRS': ['posts', 'pages'],

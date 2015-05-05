@@ -1,7 +1,7 @@
 # Global
 site_url: http://localhost:8000
 site_title: My awesome website
-theme: default
+theme: striped
 auto_expand: True
 
 # Urls
