@@ -11,7 +11,7 @@ class RadricFormatter(logging.Formatter):
     debug_fmt = "DEBUG - %(module)s: %(lineno)d: %(msg)s"
 
     def __init__(self, fmt="[*] %(msg)s"):
-        super(RadricFormatter, self).__init__(self, fmt)
+        super(RadricFormatter, self).__init__(fmt)
 
     def format(self, record):
         format_orig = self._fmt
