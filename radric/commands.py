@@ -322,6 +322,8 @@ class Commands(object):
 
         try:
             httpd.serve_forever()
+        except KeyboardInterrupt:
+            exit("Bye :)")
         finally:
             os.chdir(settings['SOURCE_PATH'])
 
