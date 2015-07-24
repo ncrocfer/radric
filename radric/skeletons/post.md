@@ -1,5 +1,5 @@
 ---
-title: TITLE
+title: "TITLE"
 date: DATE
 categories: []
 tags: []
