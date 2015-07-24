@@ -29,7 +29,7 @@ DEFAULT_SETTINGS = {
     'TAG_URL': 'tags/{tag}.html',
     'AUTHOR_URL': 'authors/{author}.html',
     'NOW': datetime.now(),
-    'AUTO_EXPAND': True,
+    'EXCERPT_SEPARATOR': '[--MORE--]'
 }
 
 

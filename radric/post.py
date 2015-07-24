@@ -16,13 +16,44 @@ class Post(object):
         self.path = path
         self.plaintext = plaintext
         self.settings = settings
-        self.content = None
+        self._content = None
+        self._excerpt = None
         self._categories = list()
         self._tags = list()
         self.metas = {key: value for key, value in metas.items()}
 
         for key, value in self.metas.items():
             setattr(self, key, value)
+
+    @property
+    def content(self):
+        if self.settings['EXCERPT_SEPARATOR'] in self._content:
+            return self._content.replace(
+                self.settings['EXCERPT_SEPARATOR'],
+                '',
+                1
+            )
+        else:
+            return self._content
+
+    @content.setter
+    def content(self, value):
+        self._content = value
+
+    @property
+    def excerpt(self):
+        if self._excerpt:
+            return self._excerpt
+        elif self.settings['EXCERPT_SEPARATOR'] in self._content:
+            return self._content.split(
+                self.settings['EXCERPT_SEPARATOR']
+            )[0]
+        else:
+            return self._content
+
+    @excerpt.setter
+    def excerpt(self, value):
+        self._excerpt = value
 
     @property
     def categories(self):

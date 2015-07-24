@@ -11,9 +11,7 @@
     {% if post.author %}
         <p class="lead">by <a href="{{ post.author.url }}">{{ post.author.name }}</a></p>
     {% endif %}
-    {% if AUTO_EXPAND %}
     {{ post.content }}
-    {% endif %}
     <hr />
 
 {% endfor %}

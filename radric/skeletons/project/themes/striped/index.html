@@ -10,9 +10,7 @@
     <div class="info">
         <span class="date"><span class="month">Jul<span>y</span></span> <span class="day">{{ post.date.strftime('%d') }}</span><span class="year">, {{ post.date.strftime('%Y') }}</span></span>
     </div>
-    {% if AUTO_EXPAND %}
     {{ post.content }}
-    {% endif %}
 </article>
 {% endfor %}
 
