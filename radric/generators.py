@@ -93,8 +93,6 @@ class PostsGenerator(BaseGenerator):
                     self.drafts.append(p)
                     continue
 
-                self.posts.append(p)
-
                 # Categories
                 if 'categories' in metas:
                     for cat in metas['categories']:
@@ -112,6 +110,10 @@ class PostsGenerator(BaseGenerator):
                             )
                             self.categories[cat]['posts'] = list()
 
+                        # Append the category to this post
+                        p.categories.append(self.categories[cat])
+
+                        # Append this post in the categories list
                         self.categories[cat]['posts'].append(p)
 
                 # Tags
@@ -131,6 +133,10 @@ class PostsGenerator(BaseGenerator):
                             )
                             self.tags[tag]['posts'] = list()
 
+                        # Append the tag to this post
+                        p.tags.append(self.tags[tag])
+
+                        # Append this post in the tags list
                         self.tags[tag]['posts'].append(p)
 
                 # Authors
@@ -143,6 +149,7 @@ class PostsGenerator(BaseGenerator):
                                 '{author}',
                                 author
                             )
+                            # Here, id(self.authors[author]) == id(p.author)
                             self.authors[author] = self.settings['AUTHORS'] \
                                                        .get(metas['author'])
                             self.authors[author]['slug'] = author
@@ -154,6 +161,9 @@ class PostsGenerator(BaseGenerator):
                             self.authors[author]['posts'] = list()
 
                         self.authors[author]['posts'].append(p)
+
+                # Append the post to the posts list
+                self.posts.append(p)
 
         self.context['categories'] = self.categories = self.categories.values()
         self.context['tags'] = self.tags = self.tags.values()

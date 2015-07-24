@@ -17,10 +17,30 @@ class Post(object):
         self.plaintext = plaintext
         self.settings = settings
         self.content = None
+        self._categories = list()
+        self._tags = list()
         self.metas = {key: value for key, value in metas.items()}
 
         for key, value in self.metas.items():
             setattr(self, key, value)
+
+    @property
+    def categories(self):
+        return self._categories
+
+    @categories.setter
+    def categories(self, name):
+        if type(name) is dict:
+            self._categories.append(name)
+
+    @property
+    def tags(self):
+        return self._tags
+
+    @tags.setter
+    def tags(self, name):
+        if type(name) is dict:
+            self._tags.append(name)
 
     @property
     def author(self):

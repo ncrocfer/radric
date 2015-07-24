@@ -180,10 +180,11 @@ class Commands(object):
             table.align["Posts"] = "l"
 
             for post in tag['posts']:
+                tags = [t['name'] for t in post.tags]
                 table.add_row([
                     post.title,
                     post.date.strftime("%B %d, %Y"),
-                    ", ".join(post.tags)
+                    ", ".join(tags)
                 ])
 
             print(table.get_string(sortby="Date", reversesort=True))
@@ -223,10 +224,11 @@ class Commands(object):
             table.align["Posts"] = "l"
 
             for post in category['posts']:
+                categories = [c['name'] for c in post.categories]
                 table.add_row([
                     post.title,
                     post.date.strftime("%B %d, %Y"),
-                    ", ".join(post.categories)
+                    ", ".join(categories)
                 ])
 
             print(table.get_string(sortby="Date", reversesort=True))
