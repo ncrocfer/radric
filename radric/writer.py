@@ -3,6 +3,8 @@
 import os
 import shutil
 
+from radric.exceptions import OSException
+
 
 class Writer(object):
 
@@ -58,3 +60,26 @@ class Writer(object):
                 self.copy_assets(s, d)
             else:
                 shutil.copy2(s, d)
+
+    def copy_static_folders(self, dst=None):
+
+        folders = self.settings.get('STATIC_DIRS', [])
+
+        for dir in folders:
+            src = os.path.join(
+                self.settings['SOURCE_PATH'],
+                dir
+            )
+
+            if not dst:
+                dst = os.path.join(
+                    self.settings['SOURCE_PATH'],
+                    self.settings['PUBLIC_FOLDER'],
+                    dir
+                )
+
+            try:
+                shutil.rmtree(dst)
+                shutil.copytree(src, dst)
+            except OSError:
+                raise OSException("Unable to copy the static folders.")

@@ -131,7 +131,11 @@ class Commands(object):
                 pages = generator.pages
                 page_drafts = generator.drafts
 
+        # Copy the assets folder
         writer.copy_assets()
+
+        # Copy the statics folders
+        writer.copy_static_folders()
 
         logger.info("Processed {0} post{1} and {2} page{3}".format(
             len(posts),
