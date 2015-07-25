@@ -29,7 +29,7 @@ class Post(object):
     def content(self):
         if self.settings['EXCERPT_SEPARATOR'] in self._content:
             return self._content.replace(
-                self.settings['EXCERPT_SEPARATOR'],
+                '<p>{}</p>'.format(self.settings['EXCERPT_SEPARATOR']),
                 '',
                 1
             )
@@ -45,9 +45,10 @@ class Post(object):
         if self._excerpt:
             return self._excerpt
         elif self.settings['EXCERPT_SEPARATOR'] in self._content:
+            # return the excerpt without the <p>
             return self._content.split(
                 self.settings['EXCERPT_SEPARATOR']
-            )[0]
+            )[0][:-3]
         else:
             return self._content
 
