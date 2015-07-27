@@ -63,8 +63,7 @@ def get_template_path(template):
         'skeletons'
     )
 
-    tpl_allowed = ['project', 'post.md', 'page.md',
-                   'post.rst', 'page.rst']
+    tpl_allowed = ['project', 'post.rst', 'page.rst']
 
     if template not in tpl_allowed:
         raise TemplateNotFound("{} template not found".format(template))

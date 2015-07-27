@@ -19,7 +19,7 @@ You can now delete this post and start creating others :
     $ radric serve
     Serving HTTP on 0.0.0.0 port 8000 ...
 
-Radric accepts the `ReST`_ and the `Markdown`_ formats.
+Radric accepts the `ReST`_ format.
 
 It also provides some help to manage :
 
@@ -32,6 +32,5 @@ It also provides some help to manage :
 
 For now, Radric is in **Beta** version. To get more information, have a look at the `documentation`_.
 
-.. _Markdown: http://daringfireball.net/projects/markdown/
 .. _ReST: http://docutils.sourceforge.net/rst.html
 .. _documentation: https://github.com/ncrocfer/radric/wiki

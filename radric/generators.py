@@ -4,7 +4,6 @@ import re
 import os
 import yaml
 import logging
-from markdown import markdown
 from slugify import slugify
 from jinja2 import Environment, FileSystemLoader
 from docutils.core import publish_parts
@@ -52,8 +51,6 @@ class BaseGenerator(object):
         if 'rst' in ext:
             parts = publish_parts(file.plaintext, writer_name='html')
             return parts['fragment']
-        elif 'md' in ext:
-            return markdown(file.plaintext)
         else:
             raise FormatException()
 

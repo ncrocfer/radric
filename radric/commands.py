@@ -45,7 +45,7 @@ class Commands(object):
 
     def new_post(self):
         settings = self._get_settings()
-        template_file = 'post.{}'.format(settings['DEFAULT_FORMAT'])
+        template_file = 'post.rst'
         template_path = get_template_path(template_file)
 
         with open(template_path, "r") as f:
@@ -63,7 +63,7 @@ class Commands(object):
         post_path = os.path.join(
             settings['SOURCE_PATH'],
             'posts',
-            '{}-{}.{}'.format(now.strftime('%Y-%m-%d'), slug, settings['DEFAULT_FORMAT'])
+            '{}-{}.rst'.format(now.strftime('%Y-%m-%d'), slug)
         )
 
         if (os.path.isfile(post_path) and
@@ -79,7 +79,7 @@ class Commands(object):
 
     def new_page(self):
         settings = self._get_settings()
-        template_file = 'page.{}'.format(settings['DEFAULT_FORMAT'])
+        template_file = 'page.rst'
         template_path = get_template_path(template_file)
 
         with open(template_path, "r") as f:
@@ -91,7 +91,7 @@ class Commands(object):
         page_path = os.path.join(
             settings['SOURCE_PATH'],
             'pages',
-            '{}.{}'.format(slug, settings['DEFAULT_FORMAT'])
+            '{}.rst'.format(slug)
         )
 
         if (os.path.isfile(page_path) and

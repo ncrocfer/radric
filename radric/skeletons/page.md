@@ -1,7 +1,0 @@
----
-title: TITLE
-menu: True
-draft: True
----
-
-Write your markdown content here.
