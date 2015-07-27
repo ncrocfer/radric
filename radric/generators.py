@@ -13,6 +13,7 @@ try:
 except ImportError:
     from urlparse import urljoin
 
+from radric import rstdirective
 from radric.post import Post
 from radric.page import Page
 from radric.exceptions import InvalidContentSyntax, FormatException
