@@ -55,6 +55,24 @@ class BaseGenerator(object):
         else:
             raise FormatException()
 
+    def generate_file(self, writer, template, context, object=None, path=None):
+        template = self.env.get_template(template)
+        content = template.render(**context).encode('utf-8')
+
+        # If we pass an object (post, category, tag...), we dynamically create
+        # the path, otherwise we use the `path` parameter
+        if object:
+            try:
+                folders = object.folders
+            except AttributeError:
+                folders = object['folders']
+
+            endpoint = writer.create_folders(folders)
+        else:
+            endpoint = path
+
+        writer.write(endpoint, content)
+
 
 class PostsGenerator(BaseGenerator):
 
@@ -186,39 +204,27 @@ class PostsGenerator(BaseGenerator):
         self.generate_index(writer, context)
 
     def generate_category(self, writer, context, category):
-        template = self.env.get_template(self.settings['CATEGORY_FILE'])
         context['category'] = category
-        content = template.render(**context).encode('utf-8')
-
-        endpoint = writer.create_folders(category['folders'])
-        writer.write(endpoint, content)
+        self.generate_file(writer, self.settings['CATEGORY_FILE'],
+                           context, category)
 
     def generate_tag(self, writer, context, tag):
-        template = self.env.get_template(self.settings['TAG_FILE'])
         context['tag'] = tag
-        content = template.render(**context).encode('utf-8')
-
-        endpoint = writer.create_folders(tag['folders'])
-        writer.write(endpoint, content)
+        self.generate_file(writer, self.settings['TAG_FILE'],
+                           context, tag)
 
     def generate_author(self, writer, context, author):
-        template = self.env.get_template(self.settings['AUTHOR_FILE'])
         context['author'] = author
-        content = template.render(**context).encode('utf-8')
-
-        endpoint = writer.create_folders(author['folders'])
-        writer.write(endpoint, content)
+        self.generate_file(writer, self.settings['AUTHOR_FILE'],
+                           context, author)
 
     def generate_post(self, writer, context, post):
-        template = self.env.get_template(self.settings['POST_FILE'])
         html = self.generate_html(post)
         post.content = html
-
         context['post'] = post
-        content = template.render(**context).encode('utf-8')
 
-        endpoint = writer.create_folders(post.folders)
-        writer.write(endpoint, content)
+        self.generate_file(writer, self.settings['POST_FILE'],
+                           context, post)
 
     def generate_index(self, writer, context):
         index_path = os.path.join(
@@ -227,10 +233,8 @@ class PostsGenerator(BaseGenerator):
             'index.html'
         )
 
-        template = self.env.get_template(self.settings['INDEX_FILE'])
-        content = template.render(**context).encode('utf-8')
-
-        writer.write(index_path, content)
+        self.generate_file(writer, self.settings['INDEX_FILE'],
+                           context, path=index_path)
 
 
 class PagesGenerator(BaseGenerator):
@@ -276,12 +280,9 @@ class PagesGenerator(BaseGenerator):
             self.generate_page(writer, context, page)
 
     def generate_page(self, writer, context, page):
-        template = self.env.get_template(self.settings['PAGE_FILE'])
         html = self.generate_html(page)
         page.content = html
         context['page'] = page
 
-        content = template.render(**context).encode('utf-8')
-
-        endpoint = writer.create_folders(page.folders)
-        writer.write(endpoint, content)
+        self.generate_file(writer, self.settings['PAGE_FILE'],
+                           context, page)
