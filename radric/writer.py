@@ -79,7 +79,7 @@ class Writer(object):
                 )
 
             try:
-                shutil.rmtree(dst)
+                shutil.rmtree(dst, ignore_errors=True)
                 shutil.copytree(src, dst)
             except OSError:
                 raise OSException("Unable to copy the static folders.")
