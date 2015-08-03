@@ -50,8 +50,9 @@ class BaseGenerator(object):
         name, ext = os.path.splitext(file.path)
 
         if 'rst' in ext:
-            parts = publish_parts(file.plaintext, writer_name='html')
-            return parts['fragment']
+            parts = publish_parts(file.plaintext, writer_name='html',
+                                  settings_overrides={'initial_header_level':2,})
+            return parts['html_body']
         else:
             raise FormatException()
 
